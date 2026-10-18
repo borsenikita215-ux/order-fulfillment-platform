@@ -1,5 +1,4 @@
 package com.fulfillment.order_fulfillment.model;
-
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 

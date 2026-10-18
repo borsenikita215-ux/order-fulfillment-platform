@@ -24,6 +24,12 @@
                         <form th:action="@{/orders/{id}/delete(id=${o.id})}" method="post">
                             <button class="btn btn-sm btn-danger">Delete</button>
                         </form>
+                        <form th:action="@{/orders/{id}/status(id=${o.id})}" method="post" class="d-inline">
+                                <select name="status" class="form-select form-select-sm d-inline w-auto" onchange="this.form.submit()">
+                                        <option th:each="s : ${T(com.fulfillment.order_fulfillment.model.OrderStatus).values()}"
+                                                        th:value="${s}" th:text="${s}" th:selected="${s == o.status}"></option>
+                                                            </select>
+                                                            </form>
                     </td>
                 </tr>
             </tbody>

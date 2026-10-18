@@ -42,4 +42,13 @@ public class OrderController {
         orderRepository.deleteById(id);
         return "redirect:/orders";
     }
+    @PostMapping("/{id}/status")
+        public String updateStatus(@PathVariable Long id,
+                    @RequestParam("status") com.fulfillment.order_fulfillment.model.OrderStatus status) {
+                            orderRepository.findById(id).ifPresent(order -> {
+                                        order.setStatus(status);
+                                                    orderRepository.save(order);
+                                                            });
+                                                                    return "redirect:/orders";
+                                                                        }
 }
